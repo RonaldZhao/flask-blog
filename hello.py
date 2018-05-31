@@ -22,5 +22,10 @@ def user(username=None):
 def post(post_id):
     return 'Post: {0}'.format(post_id)
 
+# 自定义 404 页面
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('page_not_found.html'), 404
+
 if __name__ == '__main__':
     app.run()
