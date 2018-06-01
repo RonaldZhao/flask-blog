@@ -44,5 +44,11 @@ def create_app(test_config=None):
     
     from . import db
     db.init_app(app)
-    
+
+    # 导入并注册蓝图
+    from . import auth, blog
+    app.register_blueprint(auth.bp)
+    app.register_blueprint(blog.bp)
+    app.add_url_rule('/', endpoint='index')
+
     return app
