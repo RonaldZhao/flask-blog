@@ -7,6 +7,9 @@ name = "pypi"
 pylint = "*"
 flask = "*"
 watchdog = "*"
+pytest = "*"
+coverage = "*"
+wheel = "*"
 
 [dev-packages]
 
