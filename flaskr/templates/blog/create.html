@@ -6,10 +6,10 @@
 
 {% block content %}
     <form method="post">
-        <label for="title">文章标题</label>
+        <label for="title">Title</label>
         <input type="text" name="title" id="title" value="{{ request.form['title'] }}" required>
-        <label for="body">文章内容</label>
+        <label for="body">Content</label>
         <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
-        <input type="submit" value="保存">
+        <input type="submit" value="Save">
     </form>
 {% endblock %}
