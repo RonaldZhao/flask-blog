@@ -21,11 +21,11 @@ def register():
         error = None
 
         if not username:
-            error = '用户名不可为空!'
+            error = 'Username is required.'
         elif not password:
-            error = '密码不可为空!'
+            error = 'Password is required.'
         elif db.execute('SELECT id FROM user WHERE username = ?', (username,)).fetchone() is not None:
-            error = '用户 {} 已被注册!'.format(username)
+            error = 'User {} is already registered.'.format(username)
         
         if error is None:
             db.execute('INSERT INTO  user (username, password) VALUES (?, ?)', (username, generate_password_hash(password)))
@@ -47,9 +47,9 @@ def login():
         user = db.execute('SELECT * FROM user WHERE username = ?', (username,)).fetchone()
 
         if user is None:
-            error = '此用户不存在!'
+            error = 'Incorrect username.'
         elif not check_password_hash(user['password'], password):
-            error = '密码错误!'
+            error = 'Incorrect password.'
         
         if error is None:
             session.clear()

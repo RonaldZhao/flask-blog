@@ -21,7 +21,7 @@ def create():
         error = None
 
         if not title:
-            error = '文章标题不可为空!'
+            error = 'Title is required.'
         
         if error is not None:
             flash(error)
